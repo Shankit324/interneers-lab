@@ -1,6 +1,7 @@
-# core/domain.py
+# products_app/core/domain.py
 from dataclasses import dataclass, field
 from typing import Optional
+from datetime import datetime
 
 @dataclass
 class Product:
@@ -10,4 +11,6 @@ class Product:
     price: float
     brand: str
     quantity: int
-    id: Optional[int] = None
+    id: Optional[str] = None  # Changed to str for MongoDB ObjectId
+    created_at: Optional[datetime] = None
+    updated_at: Optional[datetime] = None

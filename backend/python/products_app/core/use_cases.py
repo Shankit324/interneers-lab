@@ -13,7 +13,7 @@ class ProductService:
         if data['quantity'] < 0:
             raise ValueError("Quantity cannot be negative")
             
-        product = Product(**data)
+        product = Product(**data) 
         return self.repo.save(product)
     
     def get_product(self, product_id) -> Product:
