@@ -73,16 +73,25 @@ WSGI_APPLICATION = "django_app.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
+# settings.py
 from dotenv import load_dotenv
 import os
-from pymongo import MongoClient
-
-DATABASES = {}
 
 load_dotenv()
+
+# 1. Give Django a dummy SQLite database to keep its internal systems and test runner happy.
+# Using an in-memory database means it won't create any messy files in your project.
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': ':memory:',
+    }
+}
+
+# 2. Define your Mongo credentials (but DO NOT connect here)
 MONGO_USER = os.getenv("MONGO_USER", "root")
 MONGO_PASS = os.getenv("MONGO_PASS", "example")
-MONGO_PORT = os.getenv("MONGO_PORT", "27019")
+MONGO_PORT = os.getenv("MONGO_PORT", "27019") 
 MONGO_HOST = os.getenv("MONGO_HOST", "localhost")
 
 MONGO_URI = f"mongodb://{MONGO_USER}:{MONGO_PASS}@{MONGO_HOST}:{MONGO_PORT}/product_db?authSource=admin"
