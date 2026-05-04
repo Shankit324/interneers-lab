@@ -4,7 +4,6 @@ from .domain import Product, ProductCategory
 import csv
 import io
 
-
 class ProductService:
     def __init__(self, repo: ProductRepository):
         self.repo = repo
@@ -55,7 +54,7 @@ class ProductService:
         reader = csv.DictReader(f)
         products = []
         for row in reader:
-            # Requirement 5: Handling existing/missing brands with a default
+            # handling existing/missing brands with a default
             brand = row.get('brand') or "Legacy Brand"
             product = Product(
                 name=row['name'],

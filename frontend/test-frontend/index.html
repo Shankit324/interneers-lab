@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Gallery - Vanilla JS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Product Explorer</h1>
+        <button id="fetch-btn">Load Products</button>
+    </header>
+
+    <main id="product-container">
+        <!-- Static Tile for Step 1 -->
+        <div class="product-tile">
+            <div class="product-badge">Static Preview</div>
+            <h3>Sample Product</h3>
+            <p class="description">This is how a product will look once we fetch it from the Django API.</p>
+            <div class="price">$99.99</div>
+            <div class="brand">Brand: Example</div>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

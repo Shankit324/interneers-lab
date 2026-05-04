@@ -15,7 +15,7 @@ class ProductCategory:
 class Product:
     name: str
     price: float
-    brand: str  # 🚨 Now strictly required (No Optional)
+    brand: str  # strictly required 
     category_id: Optional[str] = None # Linking to the Category ID
     description: str = ""
     quantity: int = 0
